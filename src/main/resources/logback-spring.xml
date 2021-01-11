@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="LOGS" value="./logs" />
+
+    <appender name="Console"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                %-5level [%5t] %X{AWS-XRAY-TRACE-ID} %-36.48logger{36}: %msg%n%ex
+            </Pattern>
+        </layout>
+    </appender>
+
+    <logger name="com.ac" level="INFO" />
+
+    <!-- LOG everything at INFO level -->
+    <root level="INFO">
+        <appender-ref ref="Console" />
+    </root>
+</configuration>
